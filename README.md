@@ -16,7 +16,7 @@ gsettings set org.gnome.system.proxy mode 'manual'
 exit
 ```
 
-3. Run in terminal Terminal:
+3. Run in the Terminal:
 ```bash
 wget -qO- https://github.com/nucbio/proxy_setup/raw/main/install.sh | bash
 ```
