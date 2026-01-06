@@ -66,10 +66,3 @@ no_proxy="127.0.0.1,localhost"' | sudo tee -a /etc/environment > /dev/null
     echo "/etc/environment proxy configured"
 fi
 
-echo ""
-echo "=== Proxy setup complete ==="
-echo "Current environment variables:"
-echo "http_proxy=$http_proxy"
-echo "https_proxy=$https_proxy"
-echo ""
-echo "Note: You may need to log out and log back in for all changes to take effect."
