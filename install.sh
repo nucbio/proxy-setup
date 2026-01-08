@@ -1,5 +1,5 @@
 #!/bin/bash
-
+set -e
 # Setup proxy for system environment (shell, wget, curl, git, apt etc)
 PROXY_FILE="/etc/profile.d/proxy.sh"
 if [ ! -f "$PROXY_FILE" ]; then
