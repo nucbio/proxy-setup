@@ -11,7 +11,7 @@ gsettings set org.gnome.system.proxy.https host 'ukd-proxy'
 gsettings set org.gnome.system.proxy.https port 80
 gsettings set org.gnome.system.proxy mode 'manual'
 ```
-2. Relogin to the Terminal
+2. Exit and restart your shell:
 ```bash
 exit
 ```
@@ -21,7 +21,9 @@ exit
 wget -qO- https://github.com/nucbio/proxy_setup/raw/main/install.sh | bash
 ```
 
-4. Relogin to run further setups
+4. Exit and restart your shell to run further setups:
 ```bash
 exit
 ```
+
+Jumpt to the [Ubuntu Setup](https://github.com/nucbio/ubuntu_setup).
