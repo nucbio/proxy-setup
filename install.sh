@@ -20,18 +20,17 @@ sudo chmod +x "$PROXY_FILE"
 source "$PROXY_FILE"
 
 # Setup GNOME system proxy
-CURRENT_PROXY=$(gsettings get org.gnome.system.proxy mode 2>/dev/null)
-if [ "$CURRENT_PROXY" != "'manual'" ]; then
-    gsettings set org.gnome.system.proxy.http host 'ukd-proxy'
-    gsettings set org.gnome.system.proxy.http port 80
-    gsettings set org.gnome.system.proxy.https host 'ukd-proxy'
-    gsettings set org.gnome.system.proxy.https port 80
-    gsettings set org.gnome.system.proxy.ftp host 'ukd-proxy'
-    gsettings set org.gnome.system.proxy.ftp port 80
-    gsettings set org.gnome.system.proxy.socks host 'ukd-proxy'
-    gsettings set org.gnome.system.proxy.socks port 80
-    gsettings set org.gnome.system.proxy mode 'manual'
-fi
+gsettings set org.gnome.system.proxy mode 'manual'
+gsettings set org.gnome.system.proxy.http host 'ukd-proxy'
+gsettings set org.gnome.system.proxy.http port 80
+gsettings set org.gnome.system.proxy.https host 'ukd-proxy'
+gsettings set org.gnome.system.proxy.https port 80
+gsettings set org.gnome.system.proxy.ftp host 'ukd-proxy'
+gsettings set org.gnome.system.proxy.ftp port 80
+gsettings set org.gnome.system.proxy.socks host 'ukd-proxy'
+gsettings set org.gnome.system.proxy.socks port 80
+echo "✔ System proxy configured"
+
 
 # Setup proxy for apt
 APT_PROXY_FILE="/etc/apt/apt.conf.d/80proxy"

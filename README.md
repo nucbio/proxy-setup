@@ -1,6 +1,6 @@
 # install proxy-setup
 
-Set-up proxy settings on Ubuntu for curl, apt etc.  
+Set-up Dresden Technical University proxy settings on Ubuntu for system, curl, apt and snap.  
 You need to manually setup proxy in settings to have access to the Internet:
 1. Network > Proxy > Manual > HTTPS Proxy:  
  - URL: ukd-proxy
