@@ -26,4 +26,4 @@ wget -qO- https://github.com/nucbio/proxy_setup/raw/main/install.sh | bash
 exit
 ```
 
-Jumpt to the [Ubuntu Setup](https://github.com/nucbio/ubuntu_setup).
+Jumpt to the [Ubuntu Setup](https://github.com/nucbio/ubuntu-setup).
