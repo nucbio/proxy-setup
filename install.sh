@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Setup proxy for system environment
+# Setup proxy for system environment (shell, wget, curl, git, apt etc)
 PROXY_FILE="/etc/profile.d/proxy.sh"
 if [ ! -f "$PROXY_FILE" ]; then
   echo '# proxy settings' | sudo tee "$PROXY_FILE" > /dev/null
@@ -18,18 +18,21 @@ export NO_PROXY="127.0.0.1,localhost"
 EOF
 sudo chmod +x "$PROXY_FILE"
 source "$PROXY_FILE"
+echo "✔ Proxy environment variables configured"
 
 # Setup GNOME system proxy
-gsettings set org.gnome.system.proxy mode 'manual'
-gsettings set org.gnome.system.proxy.http host 'ukd-proxy'
-gsettings set org.gnome.system.proxy.http port 80
-gsettings set org.gnome.system.proxy.https host 'ukd-proxy'
-gsettings set org.gnome.system.proxy.https port 80
-gsettings set org.gnome.system.proxy.ftp host 'ukd-proxy'
-gsettings set org.gnome.system.proxy.ftp port 80
-gsettings set org.gnome.system.proxy.socks host 'ukd-proxy'
-gsettings set org.gnome.system.proxy.socks port 80
-echo "✔ System proxy configured"
+if [[ "$XDG_CURRENT_DESKTOP" == *"GNOME"* ]]; then
+  gsettings set org.gnome.system.proxy mode 'manual'
+  gsettings set org.gnome.system.proxy.http host 'ukd-proxy'
+  gsettings set org.gnome.system.proxy.http port 80
+  gsettings set org.gnome.system.proxy.https host 'ukd-proxy'
+  gsettings set org.gnome.system.proxy.https port 80
+  gsettings set org.gnome.system.proxy.ftp host 'ukd-proxy'
+  gsettings set org.gnome.system.proxy.ftp port 80
+  gsettings set org.gnome.system.proxy.socks host 'ukd-proxy'
+  gsettings set org.gnome.system.proxy.socks port 80
+  echo "✔ GNOME desktop proxy configured"
+fi
 
 # Setup proxy for apt
 APT_PROXY_FILE="/etc/apt/apt.conf.d/80proxy"
